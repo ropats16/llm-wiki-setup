@@ -14,13 +14,15 @@ Wait for answers before proceeding.
 
 Fetch these two files from the setup repo and customize them:
 
+**Important:** Use `curl` (not WebFetch) to fetch template files — WebFetch summarizes content through a model, which mangles templates. These URLs return raw text.
+
 ### SCHEMA.md
-1. WebFetch `https://raw.githubusercontent.com/ropats16/llm-wiki-setup/main/schema-template.md`
+1. `curl -s https://raw.githubusercontent.com/ropats16/llm-wiki-setup/main/schema-template.md`
 2. Replace `{{WIKI_NAME}}` with the user's wiki name
 3. Write as `SCHEMA.md` in the current directory
 
 ### CLAUDE.md
-1. WebFetch `https://raw.githubusercontent.com/ropats16/llm-wiki-setup/main/claude-template.md`
+1. `curl -s https://raw.githubusercontent.com/ropats16/llm-wiki-setup/main/claude-template.md`
 2. Replace `{{WIKI_NAME}}` with the user's wiki name
 3. Write as `CLAUDE.md` in the current directory
 
@@ -28,16 +30,18 @@ Fetch these two files from the setup repo and customize them:
 
 Fetch each skill file and install to `.claude/skills/`:
 
-1. WebFetch `https://raw.githubusercontent.com/ropats16/llm-wiki-setup/main/skills/wiki-ingest.md`
+Use `curl -s` for each (same reason — need raw content, not summaries):
+
+1. `curl -s https://raw.githubusercontent.com/ropats16/llm-wiki-setup/main/skills/wiki-ingest.md`
    → Write to `.claude/skills/wiki-ingest/SKILL.md`
 
-2. WebFetch `https://raw.githubusercontent.com/ropats16/llm-wiki-setup/main/skills/wiki-query.md`
+2. `curl -s https://raw.githubusercontent.com/ropats16/llm-wiki-setup/main/skills/wiki-query.md`
    → Write to `.claude/skills/wiki-query/SKILL.md`
 
-3. WebFetch `https://raw.githubusercontent.com/ropats16/llm-wiki-setup/main/skills/wiki-scout.md`
+3. `curl -s https://raw.githubusercontent.com/ropats16/llm-wiki-setup/main/skills/wiki-scout.md`
    → Write to `.claude/skills/wiki-scout/SKILL.md`
 
-4. WebFetch `https://raw.githubusercontent.com/ropats16/llm-wiki-setup/main/skills/wiki-lint.md`
+4. `curl -s https://raw.githubusercontent.com/ropats16/llm-wiki-setup/main/skills/wiki-lint.md`
    → Write to `.claude/skills/wiki-lint/SKILL.md`
 
 ## Step 4: Create directory structure

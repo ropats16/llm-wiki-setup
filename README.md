@@ -51,6 +51,12 @@ Finds broken links, missing backlinks, orphan pages, and content gaps. Offers to
 
 Searches for tier-1 sources, evaluates them, and presents candidates. Never auto-ingests.
 
+## Viewing Your Wiki
+
+The wiki is plain markdown with `[[backlinks]]` — which is [Obsidian](https://obsidian.md)'s native syntax. Open your wiki directory in Obsidian to get backlink navigation, graph view, and search for free.
+
+Or just use `/wiki-query` — the LLM is the primary interface.
+
 ## How It Works
 
 **Two layers:**
