@@ -5,41 +5,26 @@ You are setting up an LLM-maintained wiki for the user. Follow these steps exact
 ## Step 1: Ask the user two questions
 
 Ask these in a single message:
-1. **"What's your wiki about?"** — The topic determines categories.
+1. **"What's your wiki about?"** — The topic shapes the wiki's overview and schema.
 2. **"What do you want to call it?"** — The name goes in CLAUDE.md header and the wiki overview.
 
 Wait for answers before proceeding.
 
-## Step 2: Generate categories
-
-Based on the user's topic, generate categories. Each category needs a slug and one-line description. Generate as many as make sense for the topic — no fixed limit.
-
-Examples:
-- Cooking wiki → `recipes`, `techniques`, `ingredients`, `equipment`, `cuisines`, `people`
-- ML research wiki → `papers`, `architectures`, `datasets`, `benchmarks`, `researchers`, `comparisons`
-- History wiki → `events`, `people`, `places`, `eras`, `primary-sources`, `historiography`
-
-Present the categories and ask if the user wants changes before proceeding. They can add, remove, or rename freely.
-
-## Step 3: Fetch and customize template files
+## Step 2: Fetch and customize template files
 
 Fetch these two files from the setup repo and customize them:
 
 ### SCHEMA.md
 1. WebFetch `https://raw.githubusercontent.com/ropats16/llm-wiki-setup/main/schema-template.md`
 2. Replace `{{WIKI_NAME}}` with the user's wiki name
-3. Replace `{{CATEGORIES}}` with the generated categories, formatted as:
-   ```
-   - `category-slug` — Description of what belongs here
-   ```
-4. Write as `SCHEMA.md` in the current directory
+3. Write as `SCHEMA.md` in the current directory
 
 ### CLAUDE.md
 1. WebFetch `https://raw.githubusercontent.com/ropats16/llm-wiki-setup/main/claude-template.md`
 2. Replace `{{WIKI_NAME}}` with the user's wiki name
 3. Write as `CLAUDE.md` in the current directory
 
-## Step 4: Install skills
+## Step 3: Install skills
 
 Fetch each skill file and install to `.claude/skills/`:
 
@@ -55,7 +40,7 @@ Fetch each skill file and install to `.claude/skills/`:
 4. WebFetch `https://raw.githubusercontent.com/ropats16/llm-wiki-setup/main/skills/wiki-lint.md`
    → Write to `.claude/skills/wiki-lint/SKILL.md`
 
-## Step 5: Create directory structure
+## Step 4: Create directory structure
 
 ```
 raw/
@@ -78,15 +63,10 @@ All source material ingested into the wiki. These files are immutable — never 
 ```
 
 ### wiki/index.md
-Generate category headings based on the categories from Step 2. No entries yet. Format:
 ```markdown
 # {Wiki Name} — Article Index
 
-A catalog of all articles in the wiki, organized by category.
-
-## {Category Name}
-
-(No articles yet)
+A catalog of all articles in the wiki. Categories emerge as sources are ingested.
 ```
 
 ### wiki/log.md
@@ -121,7 +101,7 @@ Start by ingesting your first source:
 - `SCHEMA.md` — Conventions and rules the LLM follows.
 ```
 
-## Step 6: Print getting-started message
+## Step 5: Print getting-started message
 
 After everything is created, print:
 

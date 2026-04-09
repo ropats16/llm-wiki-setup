@@ -53,5 +53,5 @@ Full ingest pipeline: source → raw → wiki articles → indices → log. Sing
 - A single source may create multiple wiki articles and update several existing ones
 - Always check for existing articles that should be updated, not just create new ones
 - Backlinks must be bidirectional — if A links B, add B linking A too
-- Use the category list from SCHEMA.md — don't invent new categories without asking
+- Assign articles to existing categories when they fit, or create new categories as needed — categories emerge organically from ingested content
 - If the source is low quality or not tier-1, flag it to the user before ingesting

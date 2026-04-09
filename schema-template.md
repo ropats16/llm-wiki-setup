@@ -33,9 +33,9 @@ sources: [raw-source-slug-1, raw-source-slug-2]
 
 ### Categories
 
-Articles belong to exactly one category:
+Categories are not predefined — they emerge as sources are ingested. When creating a new article, assign it to an existing category or create a new one if nothing fits. Each category needs a slug and one-line description.
 
-{{CATEGORIES}}
+Categories are tracked as headings in `wiki/index.md`. The first article in a new category creates the heading.
 
 ## Backlinks
 
